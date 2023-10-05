@@ -3,31 +3,34 @@ var min = 0;
 var sec = 0;
 var count = 0;
 var timer = false;
+var flag=0;
 var startButten =document.querySelector("#start")
+startButten.addEventListener('click',function(){
+   if(flag==0){
+    start()
+    startButten.innerHTML='Stop'
+    console.log(startButten)
+    flag=1;
+   }
+   else{
+    stop()
+    startButten.innerHTML='Start'
+    console.log(startButten)
+    flag=0;
+   }
+
+})
+
+
 function start(){
     timer=true;
     stopwatch()
    }
-startButten.addEventListener('click',function(){
-    
-    startButten.innerHTML='Stop'
-    console.log(startButten);
-
-    
-
-})
-stopButten.addEventListener('click',function(){
-    
-    stopButten.innerHTML='Start'
-    console.log(stopButten);
-})
-
-var stopButten=document.querySelector("#start")
-stopButten.addEventListener("click",stop)
 function stop(){
     timer= false;
+    
 }
-function reset(){
+function reset(){2
     hr=0;
     min=0;
     sec=0;
