@@ -2,25 +2,41 @@ var hr = 0;
 var min = 0;
 var sec = 0;
 var count = 0;
+let lapnow = null;
 var timer = false;
 var flag=0;
 var startButten =document.querySelector("#start")
+var resetButten=document.querySelector('#reset')
+var lapButten=document.querySelector('#lap')
 startButten.addEventListener('click',function(){
    if(flag==0){
     start()
     startButten.innerHTML='Stop'
     console.log(startButten)
     flag=1;
+    resetButten.innerHTML='lap'
+    console.log(resetButten)
    }
    else{
     stop()
     startButten.innerHTML='Start'
     console.log(startButten)
     flag=0;
+    resetButten.innerHTML='Reset'
+    console.log(resetButten)
    }
-
+   
 })
-
+resetButten.addEventListener('click',function(){
+    if(flag==1){
+    lap()
+    }
+})
+resetButten.addEventListener('click',function(){
+    if(flag==0){
+    reset()
+    }
+})
 
 function start(){
     timer=true;
@@ -30,7 +46,7 @@ function stop(){
     timer= false;
     
 }
-function reset(){2
+function reset(){
     hr=0;
     min=0;
     sec=0;
@@ -56,27 +72,31 @@ function stopwatch(){
             min=0;
             sec=0;
         }
-        var a = hr;
-        var b =min;
-        var d =sec;
+        var hour= hr;
+        var minute =min;
+        var second =sec;
         var c =count;
          if(hr<10){
-            a='0'+a;
+            hour='0'+hour;
          }
          if(min<10){
-            b='0'+b;
+            minute='0'+minute;
          }
          if(sec<10){
-            d='0'+d;
+            second='0'+second;
          }
          if(count<10){
             c='0'+c;
          }
 
-        document.getElementById("hr").innerHTML=a;
-        document.getElementById("min").innerHTML=b;
-        document.getElementById("sec").innerHTML=d;
+        document.getElementById("hr").innerHTML=hour;
+        document.getElementById("min").innerHTML=minute;
+        document.getElementById("sec").innerHTML=second;
         document.getElementById("count").innerHTML=c;
         setTimeout("stopwatch()",10);
     }
+}
+function lap(){
+    lapnow = `<div class="lap">${hr} : ${min} : ${sec} : ${count}</div>`;
+    lapRecord.innerHTML += lapnow;
 }

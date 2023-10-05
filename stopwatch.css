@@ -3,7 +3,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 15%;
+    padding-top: 8%;
 }
 #watchBackground{
     color: antiquewhite;
@@ -22,4 +22,17 @@ body{
     padding: 2em 2em;
     font-size: 1em;
     cursor: pointer;
+    margin: 1em;
+    transition: all ease 0.25s;
+}
+.btn:hover{
+   
+transform: scale(1.2);
+}
+.laps{
+    font-size: 1.5em;
+    padding-left : 43%;
+}
+h1{
+    padding-left : 45%;
 }
